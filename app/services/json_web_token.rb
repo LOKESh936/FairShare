@@ -1,8 +1,9 @@
 module JsonWebToken
   ALGORITHM = "HS256"
 
-  def self.encode(payload, expires_at: 24.hours.from_now)
-    JWT.encode(payload.merge(exp: expires_at.to_i), secret_key, ALGORITHM)
+  def self.encode(payload = {}, expires_at: 24.hours.from_now, **kwargs)
+    data = payload.to_h.merge(kwargs).merge(exp: expires_at.to_i)
+    JWT.encode(data, secret_key, ALGORITHM)
   end
 
   def self.decode(token)
