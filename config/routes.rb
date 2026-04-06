@@ -9,4 +9,7 @@ Rails.application.routes.draw do
   get "groups/:id/expenses", to: "expenses#index"
   post "groups/:id/expenses", to: "expenses#create"
   delete "groups/:id/expenses/:expense_id", to: "expenses#destroy"
+  get "groups/:id/balances", to: "balances#show"
+  post "groups/:id/settlements", to: "settlements#create"
+  get "groups/:id/activity", to: "activities#index"
 end
