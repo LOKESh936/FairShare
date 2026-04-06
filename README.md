@@ -2,6 +2,9 @@
 
 FairShare is a production-style Ruby on Rails 7.1 API-only backend for splitting shared expenses, similar to Splitwise.
 
+If you want a full beginner-friendly explanation of the project from zero, read:
+- [`docs/BEGINNER_GUIDE.md`](docs/BEGINNER_GUIDE.md)
+
 It supports:
 - JWT authentication
 - Group creation and membership management
