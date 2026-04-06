@@ -1,0 +1,10 @@
+{
+  "name": "api-testing-app",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Lightweight API testing app with local proxy",
+  "scripts": {
+    "start": "node server.mjs"
+  }
+}

@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>API Testing App</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="layout">
+      <section class="panel request-panel">
+        <h1>API Tester</h1>
+        <p class="subhead">Send requests through a local proxy and inspect full responses.</p>
+
+        <form id="request-form" novalidate>
+          <label class="field-label" for="request-url">Request URL</label>
+          <input id="request-url" name="request-url" type="url" placeholder="https://api.example.com/v1/resource" required />
+
+          <div class="row">
+            <div class="stack">
+              <label class="field-label" for="request-method">Method</label>
+              <select id="request-method" name="request-method">
+                <option>GET</option>
+                <option>POST</option>
+                <option>PUT</option>
+                <option>PATCH</option>
+                <option>DELETE</option>
+                <option>HEAD</option>
+                <option>OPTIONS</option>
+              </select>
+            </div>
+            <div class="stack">
+              <label class="field-label" for="request-timeout">Timeout (ms)</label>
+              <input id="request-timeout" name="request-timeout" type="number" min="1000" max="120000" step="1000" value="15000" />
+            </div>
+          </div>
+
+          <label class="field-label" for="request-headers">Headers (JSON object)</label>
+          <textarea
+            id="request-headers"
+            name="request-headers"
+            rows="6"
+            spellcheck="false"
+            placeholder='{"Authorization": "Bearer token", "Content-Type": "application/json"}'
+          ></textarea>
+
+          <label class="field-label" for="request-body">Body</label>
+          <textarea
+            id="request-body"
+            name="request-body"
+            rows="8"
+            spellcheck="false"
+            placeholder='{"name": "FairShare"}'
+          ></textarea>
+
+          <div class="actions">
+            <button id="send-button" type="submit">Send Request</button>
+            <button id="clear-response" type="button" class="secondary">Clear Response</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="panel response-panel">
+        <div class="response-header">
+          <h2>Response</h2>
+          <span id="status-pill" class="status-pill status-idle">Idle</span>
+        </div>
+
+        <p id="meta-line" class="meta-line">No request sent yet.</p>
+
+        <label class="field-label" for="response-headers">Response Headers</label>
+        <pre id="response-headers" class="code-block">{}</pre>
+
+        <label class="field-label" for="response-body">Response Body</label>
+        <pre id="response-body" class="code-block">Send a request to see data here.</pre>
+
+        <label class="field-label" for="history-list">Recent Requests</label>
+        <ul id="history-list" class="history-list"></ul>
+      </section>
+    </main>
+
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>
